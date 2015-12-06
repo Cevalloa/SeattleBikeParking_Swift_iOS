@@ -27,7 +27,7 @@ class WebService: ProxyProtocol {
         
         // Sets up session
         self.sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        self.sessionConfiguration.HTTPAdditionalHeaders = ["X-App-Token" : ""] // Our API key is the value
+        self.sessionConfiguration.HTTPAdditionalHeaders = ["X-App-Token" : APIKeys.SeattleAPIToken.rawValue] // Our API key is the value
         self.urlSession = NSURLSession(configuration: self.sessionConfiguration)
         
         // We want our completition handler to be used by our WebService class

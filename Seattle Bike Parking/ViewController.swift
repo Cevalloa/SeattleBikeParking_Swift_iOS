@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         }
         
         
-     //   service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
+        service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
     }
     
     override func didReceiveMemoryWarning() {

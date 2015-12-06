@@ -8,6 +8,12 @@
 
 import Foundation
 
+// MARK: API Keys
+enum APIKeys: String {
+    
+    case SeattleAPIToken = "ebrYanNdBTTXHfiMphwR94q00"
+}
+
 // MARK: WebService Constants
 enum WebServiceConstants_ErrorMessages: String {
     
