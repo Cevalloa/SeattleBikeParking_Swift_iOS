@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6C0BA4581BF81D86007C53C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4571BF81D86007C53C7 /* AppDelegate.swift */; };
-		6C0BA45A1BF81D86007C53C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4591BF81D86007C53C7 /* ViewController.swift */; };
+		6C0BA45A1BF81D86007C53C7 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4591BF81D86007C53C7 /* MapVC.swift */; };
 		6C0BA45D1BF81D86007C53C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BA45B1BF81D86007C53C7 /* Main.storyboard */; };
 		6C0BA45F1BF81D86007C53C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BA45E1BF81D86007C53C7 /* Assets.xcassets */; };
 		6C0BA4621BF81D86007C53C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0BA4601BF81D86007C53C7 /* LaunchScreen.storyboard */; };
-		6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA46C1BF81E01007C53C7 /* ProxyProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		6C0BA4711BF81E2B007C53C7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4701BF81E2B007C53C7 /* WebService.swift */; settings = {ASSET_TAGS = (); }; };
-		6C0BA4851BF90137007C53C7 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */; settings = {ASSET_TAGS = (); }; };
-		6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4871BF95E71007C53C7 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA46C1BF81E01007C53C7 /* ProxyProtocol.swift */; };
+		6C0BA4711BF81E2B007C53C7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4701BF81E2B007C53C7 /* WebService.swift */; };
+		6C0BA4851BF90137007C53C7 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */; };
+		6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4871BF95E71007C53C7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		6C0BA4541BF81D86007C53C7 /* Seattle Bike Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seattle Bike Parking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C0BA4571BF81D86007C53C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C0BA4591BF81D86007C53C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C0BA4591BF81D86007C53C7 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		6C0BA45C1BF81D86007C53C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C0BA45E1BF81D86007C53C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C0BA4611BF81D86007C53C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,14 +83,11 @@
 		6C0BA4561BF81D86007C53C7 /* Seattle Bike Parking */ = {
 			isa = PBXGroup;
 			children = (
-				6C0BA4861BF95E5F007C53C7 /* Helper Classes */,
+				6C7166291C150DF900658220 /* View Controllers */,
+				6C0BA4861BF95E5F007C53C7 /* Helper Files */,
 				6C0BA46B1BF81DEA007C53C7 /* Network Stack */,
-				6C0BA4571BF81D86007C53C7 /* AppDelegate.swift */,
-				6C0BA4591BF81D86007C53C7 /* ViewController.swift */,
-				6C0BA45B1BF81D86007C53C7 /* Main.storyboard */,
-				6C0BA45E1BF81D86007C53C7 /* Assets.xcassets */,
-				6C0BA4601BF81D86007C53C7 /* LaunchScreen.storyboard */,
-				6C0BA4631BF81D86007C53C7 /* Info.plist */,
+				6C71662B1C150EAF00658220 /* Storyboards / Assets */,
+				6C71662A1C150E9400658220 /* App Resources */,
 			);
 			path = "Seattle Bike Parking";
 			sourceTree = "<group>";
@@ -129,12 +126,39 @@
 			path = "Seattle Bike ParkingTests";
 			sourceTree = "<group>";
 		};
-		6C0BA4861BF95E5F007C53C7 /* Helper Classes */ = {
+		6C0BA4861BF95E5F007C53C7 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
 				6C0BA4871BF95E71007C53C7 /* Constants.swift */,
 			);
-			name = "Helper Classes";
+			name = "Helper Files";
+			sourceTree = "<group>";
+		};
+		6C7166291C150DF900658220 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C0BA4591BF81D86007C53C7 /* MapVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		6C71662A1C150E9400658220 /* App Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6C0BA4571BF81D86007C53C7 /* AppDelegate.swift */,
+				6C0BA4631BF81D86007C53C7 /* Info.plist */,
+			);
+			name = "App Resources";
+			sourceTree = "<group>";
+		};
+		6C71662B1C150EAF00658220 /* Storyboards / Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6C0BA45B1BF81D86007C53C7 /* Main.storyboard */,
+				6C0BA45E1BF81D86007C53C7 /* Assets.xcassets */,
+				6C0BA4601BF81D86007C53C7 /* LaunchScreen.storyboard */,
+			);
+			name = "Storyboards / Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +263,7 @@
 			files = (
 				6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */,
 				6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */,
-				6C0BA45A1BF81D86007C53C7 /* ViewController.swift in Sources */,
+				6C0BA45A1BF81D86007C53C7 /* MapVC.swift in Sources */,
 				6C0BA4711BF81E2B007C53C7 /* WebService.swift in Sources */,
 				6C0BA4581BF81D86007C53C7 /* AppDelegate.swift in Sources */,
 			);
@@ -430,6 +454,7 @@
 				6C0BA4681BF81D86007C53C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C0BA47D1BF8208B007C53C7 /* Build configuration list for PBXNativeTarget "Seattle Bike ParkingTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +463,7 @@
 				6C0BA47F1BF8208B007C53C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
