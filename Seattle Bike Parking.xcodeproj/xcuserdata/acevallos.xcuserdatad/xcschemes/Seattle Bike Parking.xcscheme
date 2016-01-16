@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Seattle Bike Parking.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C7166301C15318900658220"
+               BuildableName = "Seattle Bike ParkingUITests.xctest"
+               BlueprintName = "Seattle Bike ParkingUITests"
+               ReferencedContainer = "container:Seattle Bike Parking.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
