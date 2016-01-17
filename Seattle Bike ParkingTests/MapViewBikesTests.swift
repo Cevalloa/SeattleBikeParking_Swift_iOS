@@ -7,15 +7,13 @@
 //
 
 import XCTest
-import MapKit
 @testable import Seattle_Bike_Parking
 
 
 class MapViewBikesTests: XCTestCase {
     
-    var mainViewControllerThatContainsMap: MainViewController!
+    var mainViewControllerThatContainsMap: ViewControllerMain!
 
-    
     // MARK: Unit Tests
     func testShouldSetMapToViewEntireSeattle() {  // Test: Ensures the mapView resets to center seattle
         
@@ -42,7 +40,7 @@ class MapViewBikesTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) // Load Storyboard
         let navigationController = storyboard.instantiateInitialViewController() as! UITabBarController // Loads TabBarController
         let testo = navigationController.viewControllers?.first as! UINavigationController // Loads NavigationController
-        mainViewControllerThatContainsMap = testo.topViewController as! MainViewController // Loads Our created Main View Controller
+        mainViewControllerThatContainsMap = testo.topViewController as! ViewControllerMain // Loads Our created Main View Controller
         
         UIApplication.sharedApplication().keyWindow!.rootViewController = mainViewControllerThatContainsMap // Sets our main view controller
     }

@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: API Keys
 enum APIKeys: String {
-    
     case SeattleAPIToken = ""
 }
 
@@ -21,7 +20,6 @@ enum MapKitConstants: Double {
     case SeattleCenter_longitude = -122.3322241
     case regionRadius = 10000
 }
-
 
 // MARK: WebService Constants
 enum WebServiceConstants_ErrorMessages: String {

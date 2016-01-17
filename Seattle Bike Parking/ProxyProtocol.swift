@@ -11,4 +11,5 @@ import UIKit
 protocol ProxyProtocol {
     
     func GET(urlToGet: NSURL)
+    
 }
