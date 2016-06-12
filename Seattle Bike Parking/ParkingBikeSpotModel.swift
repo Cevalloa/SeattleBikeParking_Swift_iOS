@@ -1,5 +1,5 @@
 //
-//  BikeParkingSpot.swift
+//  ParkingBikeSpotModel.swift
 //  Seattle Bike Parking
 //
 //  Created by Alex Cevallos on 1/16/16.
@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import AddressBook
 
-class ModelParkingSpotBike: NSObject, MKAnnotation {
+class ParkingBikeSpotModel: NSObject, MKAnnotation {
  
     var title: String?
     var subTitle: String?

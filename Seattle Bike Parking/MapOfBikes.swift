@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class ViewControllerMapBikes: MKMapView {
+class MapOfBikes: MKMapView {
     
     // MARK: Initializer Methods
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +52,9 @@ class ViewControllerMapBikes: MKMapView {
         mapService.requestNetworkConnectionForDirectionsRoute()
     }
     
+    // MARK: Annotation Creation Methods
+    
+    // Creates 
     
     // Physical draws the line view
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -62,14 +65,16 @@ class ViewControllerMapBikes: MKMapView {
             
             return polyLineRenderer
     }
-    
 }
 
-extension ViewControllerMapBikes: MKMapViewDelegate {
+// MapView Delegate Methods
+extension MapOfBikes: MKMapViewDelegate {
     
+    //MARK: Annotation Delegate Methods
+
     // Used like TableView.CellForRowAtIndexPath
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? ModelParkingSpotBike {
+        if let annotation = annotation as? ParkingBikeSpotModel {
             
             let identifier = "bikeRack"
             var view: MKPinAnnotationView
@@ -95,7 +100,7 @@ extension ViewControllerMapBikes: MKMapViewDelegate {
     // Called when annotation callout button is pressed
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        let annotationClicked = view.annotation as! ModelParkingSpotBike
+        let annotationClicked = view.annotation as! ParkingBikeSpotModel
         
 
     }

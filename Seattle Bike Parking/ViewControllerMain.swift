@@ -12,7 +12,7 @@ import MapKit
 class ViewControllerMain: UIViewController {
     
     //MARK: IBOutlet Properties
-    @IBOutlet weak var mapView: ViewControllerMapBikes! // Custom mapView class set for storyboard map
+    @IBOutlet weak var mapView: MapOfBikes! // Custom mapView class set for storyboard map
     
     //MARK: View Lifecycle Methods
     override func viewDidLoad() {
@@ -29,14 +29,25 @@ class ViewControllerMain: UIViewController {
         
         let service = WebService { (returnedJSON, errorMessage) -> Void in
             
-            let annotationTest = ModelParkingSpotBike(title: "Test", subTitle: "Subtitle", coordinate: CLLocationCoordinate2DMake(47.5274, -122.3153))
+            // convert returned json into modelparkingspotbike
+            // next here!
             
-            self.mapView.addAnnotation(annotationTest)
-           // self.mapView.drawDirectionRouteOnMap()
+//            let annotationTest = ParkingBikeSpotModel(title: "Test", subTitle: "Subtitle", coordinate: CLLocationCoordinate2DMake(47.5274, -122.3153))
+            
+            if let arrayOfModels = returnedJSON as? [ParkingBikeSpotModel] {
+                for annotationTest in arrayOfModels {
+                    
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.mapView.addAnnotation(annotationTest)
+                    })
+                }
+            }
+
+            
             print(returnedJSON)
-            
         }
         
+        // Service layer calls HTTP request
         service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
     }
 }

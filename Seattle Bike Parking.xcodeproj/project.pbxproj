@@ -18,9 +18,10 @@
 		6C6C6C421C462EBB009884A0 /* MapViewBikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */; };
 		6C6C6C441C462EDB009884A0 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */; };
 		6C7166341C15318900658220 /* Seattle_Bike_ParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */; };
-		6C71663C1C153B0600658220 /* ViewControllerMapBikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71663B1C153B0600658220 /* ViewControllerMapBikes.swift */; };
-		6CAD20C61C4AE8790002FDDA /* ModelParkingSpotBike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C51C4AE8790002FDDA /* ModelParkingSpotBike.swift */; };
+		6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71663B1C153B0600658220 /* MapOfBikes.swift */; };
+		6CAD20C61C4AE8790002FDDA /* ParkingBikeSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */; };
 		6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C71C4B18930002FDDA /* MapService.swift */; };
+		6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +59,10 @@
 		6C7166311C15318900658220 /* Seattle Bike ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seattle Bike ParkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seattle_Bike_ParkingUITests.swift; sourceTree = "<group>"; };
 		6C7166351C15318900658220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C71663B1C153B0600658220 /* ViewControllerMapBikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMapBikes.swift; sourceTree = "<group>"; };
-		6CAD20C51C4AE8790002FDDA /* ModelParkingSpotBike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelParkingSpotBike.swift; sourceTree = "<group>"; };
+		6C71663B1C153B0600658220 /* MapOfBikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOfBikes.swift; sourceTree = "<group>"; };
+		6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingBikeSpotModel.swift; sourceTree = "<group>"; };
 		6CAD20C71C4B18930002FDDA /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeSpotParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		6C0BA4561BF81D86007C53C7 /* Seattle Bike Parking */ = {
 			isa = PBXGroup;
 			children = (
+				6C7BA3BD1CFFADB300F16560 /* Views */,
 				6C7166291C150DF900658220 /* View Controllers */,
 				6C71662C1C15310B00658220 /* Model Objects */,
 				6C0BA46B1BF81DEA007C53C7 /* Network Stack */,
@@ -143,6 +146,7 @@
 			children = (
 				6C0BA4701BF81E2B007C53C7 /* WebService.swift */,
 				6CAD20C71C4B18930002FDDA /* MapService.swift */,
+				6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */,
 			);
 			name = "Service Layer";
 			sourceTree = "<group>";
@@ -169,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				6C0BA4591BF81D86007C53C7 /* ViewControllerMain.swift */,
-				6C71663B1C153B0600658220 /* ViewControllerMapBikes.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -196,7 +199,7 @@
 		6C71662C1C15310B00658220 /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				6CAD20C51C4AE8790002FDDA /* ModelParkingSpotBike.swift */,
+				6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -208,6 +211,14 @@
 				6C7166351C15318900658220 /* Info.plist */,
 			);
 			path = "Seattle Bike ParkingUITests";
+			sourceTree = "<group>";
+		};
+		6C7BA3BD1CFFADB300F16560 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C71663B1C153B0600658220 /* MapOfBikes.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,13 +352,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CAD20C61C4AE8790002FDDA /* ModelParkingSpotBike.swift in Sources */,
+				6CAD20C61C4AE8790002FDDA /* ParkingBikeSpotModel.swift in Sources */,
 				6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */,
 				6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */,
 				6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */,
 				6C0BA45A1BF81D86007C53C7 /* ViewControllerMain.swift in Sources */,
 				6C0BA4711BF81E2B007C53C7 /* WebService.swift in Sources */,
-				6C71663C1C153B0600658220 /* ViewControllerMapBikes.swift in Sources */,
+				6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */,
+				6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */,
 				6C0BA4581BF81D86007C53C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +485,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -482,6 +495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class WebService: ProxyProtocol {
     
@@ -63,16 +64,16 @@ class WebService: ProxyProtocol {
                 // Check: Do we have data returned from the API call ?
                 if let dataReturned = data {
                     
-                    do {
+                    do { // Try: JSON parsing
                         
-                        // Try: JSON parsing
-                        let returnJSON = try NSJSONSerialization.JSONObjectWithData(dataReturned, options: NSJSONReadingOptions.MutableContainers)
+                        let convertedJSON = try NSJSONSerialization.JSONObjectWithData(dataReturned, options: [])
                         
                         do {  // We don't want this JSON if there is an error..
-                            try self.methodHelper_isValidJSON(returnJSON)
+                          //  print(convertedJSON)
+                            resultingJSON = try self.methodHelper_isValidJSON(convertedJSON)
                                 
-                                resultingJSON = returnJSON
-                                print(resultingJSON)
+                           // resultingJSON = self.methodHelper_parsesJSON(returnJSON)
+                               // print(resultingJSON)
                             
                         } catch WebServiceConstants_Errors.InvalidJSON {
                             
@@ -100,16 +101,50 @@ class WebService: ProxyProtocol {
     }
     
     // MARK: Helper Methods - Validity
-    func methodHelper_isValidJSON(json: AnyObject?) throws  { // Its fine if it is Dictionary or array
+    func methodHelper_parsesJSON(returnedJSONToParse: Array<NSDictionary>) -> [ParkingBikeSpotModel] {
         
-        if let _ = json as? NSDictionary {
+        // Removes entries without latitude or longitude
+        let arrayOfDictionariesFiltered = returnedJSONToParse.filter { (individualDictionaryOfParkingSpot) -> Bool in
             
-            return
+            if let _ = individualDictionaryOfParkingSpot["latitude"] as? Double,
+            let _  = individualDictionaryOfParkingSpot["longitude"] as? Double {
+                
+                return false
+            }
+            
+            return true
         }
         
-        if let _ = json as? NSArray {
+         return arrayOfDictionariesFiltered.map({ (individualDictionaryOfParkingSpot) -> ParkingBikeSpotModel in
             
-            return
+                var parkingSpotTitle = "Unknown spots available"
+                let parkingSpotSubtitle = ""
+            
+                // Returns back number of spots available
+                if let parkingSpotTitleUnwrapped = individualDictionaryOfParkingSpot["rack_capac"] {
+                    
+                    parkingSpotTitle = "\(parkingSpotTitleUnwrapped) spots available"
+                }
+            
+            
+                // Forcefully unwrapping, since already filtered out non lat/long Doubles
+                return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, coordinate: CLLocationCoordinate2DMake(
+                    Double(individualDictionaryOfParkingSpot["latitude"] as! String)!,
+                    Double(individualDictionaryOfParkingSpot["longitude"] as! String)!))
+            })
+        
+        
+    }
+    
+    
+    func methodHelper_isValidJSON(json: AnyObject?) throws -> [AnyObject]  { // Its fine if it is Dictionary or array
+        print(json)
+        if let jsonConfirmedArray = json as? Array<NSDictionary> {
+            
+            let arrayOfModels = self.methodHelper_parsesJSON(jsonConfirmedArray)
+            
+            print(arrayOfModels)
+            return arrayOfModels
         }
         
         throw WebServiceConstants_Errors.InvalidJSON
