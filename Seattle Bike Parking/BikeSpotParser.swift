@@ -15,16 +15,28 @@ class BikeSpotParser {
     class func methodCreateArrayOfBikeSpotModels(returnedJSONToParse: Array<NSDictionary>) -> [ParkingBikeSpotModel] {
         
         // Removes entries without latitude or longitude
-        let arrayOfDictionariesFiltered = returnedJSONToParse.filter { (individualDictionaryOfParkingSpot) -> Bool in
+        let arrayOfDictionariesFiltered = methodRemoveAllNilValues(returnedJSONToParse)
+        
+        // After filtering out nil lat/long entries, we create bike spot models
+        return methodParseIndividualDictionaryIntoBikeSpotModel(arrayOfDictionariesFiltered)
+    }
+    
+    //MARK - Helper Methods
+    class func methodRemoveAllNilValues(jsonToCheck: Array<NSDictionary>) -> Array<NSDictionary> {
+        
+        return jsonToCheck.filter { (individualDictionaryOfParkingSpot) -> Bool in
             
-            if let _ = individualDictionaryOfParkingSpot["latitude"] as? Double,
-                let _  = individualDictionaryOfParkingSpot["longitude"] as? Double {
+            if let _ = Double(individualDictionaryOfParkingSpot["latitude"] as! String),
+                let _  = Double(individualDictionaryOfParkingSpot["longitude"] as! String) {
                 
-                return false
+                return true
             }
             
-            return true
+            return false
         }
+    }
+    
+    class func methodParseIndividualDictionaryIntoBikeSpotModel(arrayOfDictionariesFiltered: Array<NSDictionary>) -> [ParkingBikeSpotModel] {
         
         return arrayOfDictionariesFiltered.map({ (individualDictionaryOfParkingSpot) -> ParkingBikeSpotModel in
             
@@ -43,8 +55,13 @@ class BikeSpotParser {
                 Double(individualDictionaryOfParkingSpot["latitude"] as! String)!,
                 Double(individualDictionaryOfParkingSpot["longitude"] as! String)!))
         })
-        
-        
     }
-    
 }
+
+
+
+
+
+
+
+

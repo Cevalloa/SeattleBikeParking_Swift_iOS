@@ -129,6 +129,7 @@
 		6C0BA46B1BF81DEA007C53C7 /* Network Stack */ = {
 			isa = PBXGroup;
 			children = (
+				6C5010E71D0DCC1E0089F5C2 /* Parser Layer */,
 				6C0BA46F1BF81E1D007C53C7 /* Service Layer */,
 				6C0BA46E1BF81E11007C53C7 /* Proxy Layer */,
 			);
@@ -148,7 +149,6 @@
 			children = (
 				6C0BA4701BF81E2B007C53C7 /* WebServiceProxy.swift */,
 				6CAD20C71C4B18930002FDDA /* MapService.swift */,
-				6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */,
 				6CE19CE51D0D3C18001D8C74 /* BikeSpotService.swift */,
 			);
 			name = "Service Layer";
@@ -170,6 +170,14 @@
 				6C0BA4871BF95E71007C53C7 /* Constants.swift */,
 			);
 			name = "Helper Files";
+			sourceTree = "<group>";
+		};
+		6C5010E71D0DCC1E0089F5C2 /* Parser Layer */ = {
+			isa = PBXGroup;
+			children = (
+				6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */,
+			);
+			name = "Parser Layer";
 			sourceTree = "<group>";
 		};
 		6C7166291C150DF900658220 /* View Controllers */ = {
