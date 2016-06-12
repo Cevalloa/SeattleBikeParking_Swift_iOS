@@ -27,28 +27,28 @@ class ViewControllerMain: UIViewController {
     //MARK: Helper Methods
     func fetchBikeParkingData() {
         
-        let service = WebService { (returnedJSON, errorMessage) -> Void in
+        let proxy = WebServiceProxy { (returnedJSON, errorMessage) -> Void in
+            
+            let returnedJSONTwo = BikeSpotParser.methodCreateArrayOfBikeSpotModels(returnedJSON)
             
             // convert returned json into modelparkingspotbike
-            // next here!
-            
-//            let annotationTest = ParkingBikeSpotModel(title: "Test", subTitle: "Subtitle", coordinate: CLLocationCoordinate2DMake(47.5274, -122.3153))
-            
-            if let arrayOfModels = returnedJSON as? [ParkingBikeSpotModel] {
-                for annotationTest in arrayOfModels {
+  //          if let arrayOfModels = returnedJSONTwo as? [ParkingBikeSpotModel] {
+                for annotationTest in returnedJSONTwo {
                     
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.mapView.addAnnotation(annotationTest)
                     })
                 }
-            }
+    //        }
 
             
             print(returnedJSON)
         }
         
         // Service layer calls HTTP request
-        service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
+        let bikeSpotService = BikeSpotService()
+        bikeSpotService.methodGetRequestForBikeSpots(proxy)
+     //   service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
     }
 }
 

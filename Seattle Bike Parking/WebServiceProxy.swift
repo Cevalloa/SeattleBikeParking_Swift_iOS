@@ -9,10 +9,10 @@
 import Foundation
 import MapKit
 
-class WebService: ProxyProtocol {
+class WebServiceProxy: ProxyProtocol {
     
     // MARK: TypeAliases
-    typealias CompletitionHandler = (returnedJSON: AnyObject?, errorMessage: String?) -> Void
+    typealias CompletitionHandler = (returnedJSON: Array<NSDictionary>, errorMessage: String?) -> Void
     
     // MARK: Member Variables
     var urlSessionTask: NSURLSessionTask? // The task (actual action)
@@ -49,7 +49,7 @@ class WebService: ProxyProtocol {
     // MARK: Helper Methods - Parsing
     func methodHelper_parseResponse(data: NSData?, response: NSURLResponse?, error: NSError?) -> Void {
             
-        var resultingJSON: AnyObject?
+        var resultingJSON: Array<NSDictionary> = ([])
         var resultingErrorMessage: String?
         
         if let _ =  error { // Error establishing a connection
@@ -101,50 +101,12 @@ class WebService: ProxyProtocol {
     }
     
     // MARK: Helper Methods - Validity
-    func methodHelper_parsesJSON(returnedJSONToParse: Array<NSDictionary>) -> [ParkingBikeSpotModel] {
+
+    // Checks if this is valid JSON
+    func methodHelper_isValidJSON(json: AnyObject?) throws -> Array<NSDictionary> { // Its fine if it is Dictionary or array
         
-        // Removes entries without latitude or longitude
-        let arrayOfDictionariesFiltered = returnedJSONToParse.filter { (individualDictionaryOfParkingSpot) -> Bool in
-            
-            if let _ = individualDictionaryOfParkingSpot["latitude"] as? Double,
-            let _  = individualDictionaryOfParkingSpot["longitude"] as? Double {
-                
-                return false
-            }
-            
-            return true
-        }
-        
-         return arrayOfDictionariesFiltered.map({ (individualDictionaryOfParkingSpot) -> ParkingBikeSpotModel in
-            
-                var parkingSpotTitle = "Unknown spots available"
-                let parkingSpotSubtitle = ""
-            
-                // Returns back number of spots available
-                if let parkingSpotTitleUnwrapped = individualDictionaryOfParkingSpot["rack_capac"] {
-                    
-                    parkingSpotTitle = "\(parkingSpotTitleUnwrapped) spots available"
-                }
-            
-            
-                // Forcefully unwrapping, since already filtered out non lat/long Doubles
-                return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, coordinate: CLLocationCoordinate2DMake(
-                    Double(individualDictionaryOfParkingSpot["latitude"] as! String)!,
-                    Double(individualDictionaryOfParkingSpot["longitude"] as! String)!))
-            })
-        
-        
-    }
-    
-    
-    func methodHelper_isValidJSON(json: AnyObject?) throws -> [AnyObject]  { // Its fine if it is Dictionary or array
-        print(json)
         if let jsonConfirmedArray = json as? Array<NSDictionary> {
-            
-            let arrayOfModels = self.methodHelper_parsesJSON(jsonConfirmedArray)
-            
-            print(arrayOfModels)
-            return arrayOfModels
+            return jsonConfirmedArray
         }
         
         throw WebServiceConstants_Errors.InvalidJSON
