@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Sets up colors
+        methodSetupAppAppearance()
+        
         return true
     }
 
@@ -41,6 +45,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    //MARK: Appearance Methods
+    func methodSetupAppAppearance() {
+        
+        // Sets up navigation bar colors
+        methodSetupAppAppearanceNavigationBar()
+        
+        // Sets up tab bar colors
+        methodSetupAppAppearanceTabBar()
+    }
+    
+    //MARK - Appearance Helper Methods
+    func methodSetupAppAppearanceNavigationBar() {
+        
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().barTintColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+    }
+    
+    func methodSetupAppAppearanceTabBar() {
+        
+        UITabBar.appearance().translucent = false
+        UITabBar.appearance().barTintColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor().colorWithAlphaComponent(0.5)], forState: UIControlState.Normal)
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+    }
 }
+
+
+
+
+
 

@@ -89,6 +89,7 @@ extension MapOfBikes: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+                //view.pinTintColor = UIColor(red:10/255, green:204/255, blue:56/255, alpha:1.0)
             }
             
             return view
