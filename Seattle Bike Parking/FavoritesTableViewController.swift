@@ -46,6 +46,10 @@ class FavoritesTableViewController: UITableViewController {
         return 0
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
     //MARK: - NSUserDefaults Conversion Methods
     func methodConvertNSUserDefaultArrayIntoUsableBikeSpotModelArray() {
         
@@ -79,9 +83,21 @@ class FavoritesTableViewController: UITableViewController {
 class FavoritesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelTitleForFavoritesCell: UILabel!
+    @IBOutlet weak var labelNumberOfSpots: UILabel!
+    @IBOutlet weak var labelSpots: UILabel!
     
+    @IBOutlet weak var viewForRightContainer: UIView!
     func methodSetUpCell(parkingBikeSpotModel: ParkingBikeSpotModel) {
-        self.labelTitleForFavoritesCell.text = parkingBikeSpotModel.title
+        self.labelTitleForFavoritesCell.text = parkingBikeSpotModel.address
+        
+        let coloro = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
+        
+        self.backgroundColor = UIColor.whiteColor()
+        viewForRightContainer.backgroundColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+        
+        self.labelTitleForFavoritesCell.textColor = coloro
+        self.labelNumberOfSpots.textColor = UIColor.whiteColor()
+        self.labelSpots.textColor = UIColor.whiteColor()
     }
     
     func methodSetUpCellSomethingHasGoneWrong() {

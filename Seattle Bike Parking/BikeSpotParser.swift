@@ -42,16 +42,38 @@ class BikeSpotParser {
             
             var parkingSpotTitle = "Unknown spots available"
             let parkingSpotSubtitle = ""
+            var parkingSpotAddress = ""
             
             // Returns back number of spots available
             if let parkingSpotTitleUnwrapped = individualDictionaryOfParkingSpot["rack_capac"] {
                 
-                parkingSpotTitle = "\(parkingSpotTitleUnwrapped) spots available"
+                parkingSpotTitle = "\(parkingSpotTitleUnwrapped) maximum capacity"
+            }
+            
+            if let parkingSpotAddressUnwrapped = individualDictionaryOfParkingSpot["unitdesc"] as? String {
+                
+                //Capitalize only first element
+                var parkingSpotAddressFinal = "\(String(parkingSpotAddressUnwrapped.characters.first!).uppercaseString)"
+                
+                var index: String.CharacterView.Index
+                if let leftParenthesisIndexUnwrapped = parkingSpotAddressUnwrapped.characters.indexOf("(") {
+                    
+                    index = leftParenthesisIndexUnwrapped
+                    
+
+                } else {
+                 
+                    index = parkingSpotAddressUnwrapped.endIndex
+                }
+                
+                parkingSpotAddressFinal += "\(parkingSpotAddressUnwrapped[parkingSpotAddressUnwrapped.startIndex.advancedBy(1)..<index].lowercaseString) "
+                
+                parkingSpotAddress = parkingSpotAddressFinal
             }
             
             
             // Forcefully unwrapping, since already filtered out non lat/long Doubles
-            return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, coordinate: CLLocationCoordinate2DMake(
+            return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, address: parkingSpotAddress, coordinate: CLLocationCoordinate2DMake(
                 Double(individualDictionaryOfParkingSpot["latitude"] as! String)!,
                 Double(individualDictionaryOfParkingSpot["longitude"] as! String)!))
         })
