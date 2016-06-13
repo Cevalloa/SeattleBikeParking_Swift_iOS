@@ -15,6 +15,7 @@
 		6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA46C1BF81E01007C53C7 /* ProxyProtocol.swift */; };
 		6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4701BF81E2B007C53C7 /* WebServiceProxy.swift */; };
 		6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4871BF95E71007C53C7 /* Constants.swift */; };
+		6C5010EB1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EA1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift */; };
 		6C6C6C421C462EBB009884A0 /* MapViewBikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */; };
 		6C6C6C441C462EDB009884A0 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */; };
 		6C7166341C15318900658220 /* Seattle_Bike_ParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */; };
@@ -56,6 +57,7 @@
 		6C0BA47A1BF8208B007C53C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		6C0BA4871BF95E71007C53C7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6C5010EA1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewBikesTests.swift; sourceTree = "<group>"; };
 		6C7166311C15318900658220 /* Seattle Bike ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seattle Bike ParkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seattle_Bike_ParkingUITests.swift; sourceTree = "<group>"; };
@@ -115,8 +117,8 @@
 		6C0BA4561BF81D86007C53C7 /* Seattle Bike Parking */ = {
 			isa = PBXGroup;
 			children = (
-				6C7BA3BD1CFFADB300F16560 /* Views */,
 				6C7166291C150DF900658220 /* View Controllers */,
+				6C7BA3BD1CFFADB300F16560 /* Views */,
 				6C71662C1C15310B00658220 /* Model Objects */,
 				6C0BA46B1BF81DEA007C53C7 /* Network Stack */,
 				6C0BA4861BF95E5F007C53C7 /* Helper Files */,
@@ -180,10 +182,27 @@
 			name = "Parser Layer";
 			sourceTree = "<group>";
 		};
-		6C7166291C150DF900658220 /* View Controllers */ = {
+		6C5010E81D0DF29D0089F5C2 /* Main Map Tab */ = {
 			isa = PBXGroup;
 			children = (
 				6C0BA4591BF81D86007C53C7 /* ViewControllerMain.swift */,
+			);
+			name = "Main Map Tab";
+			sourceTree = "<group>";
+		};
+		6C5010E91D0DF2AE0089F5C2 /* Favorites Tab */ = {
+			isa = PBXGroup;
+			children = (
+				6C5010EA1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift */,
+			);
+			name = "Favorites Tab";
+			sourceTree = "<group>";
+		};
+		6C7166291C150DF900658220 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C5010E81D0DF29D0089F5C2 /* Main Map Tab */,
+				6C5010E91D0DF2AE0089F5C2 /* Favorites Tab */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -368,6 +387,7 @@
 				6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */,
 				6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */,
 				6C0BA45A1BF81D86007C53C7 /* ViewControllerMain.swift in Sources */,
+				6C5010EB1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift in Sources */,
 				6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */,
 				6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */,
 				6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */,

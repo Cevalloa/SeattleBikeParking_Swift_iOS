@@ -87,7 +87,7 @@ extension MapOfBikes: MKMapViewDelegate {
                 
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.calloutOffset = CGPoint(x: -10, y: 0)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
                 //view.pinTintColor = UIColor(red:10/255, green:204/255, blue:56/255, alpha:1.0)
             }
@@ -103,6 +103,21 @@ extension MapOfBikes: MKMapViewDelegate {
         
         let annotationClicked = view.annotation as! ParkingBikeSpotModel
         
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        var updatedArray = [NSKeyedArchiver.archivedDataWithRootObject(annotationClicked)]
+        
+        if let arrayOfFavoritesCurrently = userDefaults.objectForKey("arrayOfFavoriteBikeSpots") as? [NSData] {
+            
+            updatedArray = [NSKeyedArchiver.archivedDataWithRootObject(annotationClicked)] + arrayOfFavoritesCurrently
+            
+           // updatedArray = userDefaults.setObject(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
+        }
+        
+        userDefaults.setObject(updatedArray, forKey: "arrayOfFavoriteBikeSpots")
+        
+        userDefaults.synchronize()
+        
+        print(annotationClicked.title)
 
     }
 }
