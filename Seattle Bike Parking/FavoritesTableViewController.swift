@@ -8,7 +8,10 @@
 
 import UIKit
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableViewFavorites: UITableView!
+    @IBOutlet weak var labelNoFavoritesAvailable: UILabel!
     
     // Contains list of favorites
     var arrayOfFavoriteBikeSpots: [ParkingBikeSpotModel]?
@@ -17,13 +20,18 @@ class FavoritesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         // Converts NSUserDefaults favorites array from NSData into an array of BikeSpotModel objects
+        self.tableViewFavorites.delegate = self
+        self.tableViewFavorites.dataSource = self
+    
         methodConvertNSUserDefaultArrayIntoUsableBikeSpotModelArray()
+        
+
     }
     
     //MARK: - Tableview Data Source Methods
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let tableViewCell = self.tableView.dequeueReusableCellWithIdentifier("favoritesCell", forIndexPath: indexPath) as! FavoritesTableViewCell
+        let tableViewCell = tableViewFavorites.dequeueReusableCellWithIdentifier("favoritesCell", forIndexPath: indexPath) as! FavoritesTableViewCell
         
         if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots {
             
@@ -37,7 +45,7 @@ class FavoritesTableViewController: UITableViewController {
         return tableViewCell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots {
             
@@ -46,7 +54,7 @@ class FavoritesTableViewController: UITableViewController {
         return 0
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
     
@@ -74,7 +82,15 @@ class FavoritesTableViewController: UITableViewController {
             
             // Assign our local array of Spot models into our global property in use by our table view
             arrayOfFavoriteBikeSpots = arrayOfFavoriteBikeSpotsConvertedFromUserDefaults
-            self.tableView.reloadData()
+            labelNoFavoritesAvailable.hidden = true
+            tableViewFavorites.hidden = false
+            tableViewFavorites.reloadData()
+        } else {
+            
+            self.tableViewFavorites.hidden = true
+            labelNoFavoritesAvailable.hidden = false
+            self.labelNoFavoritesAvailable.textColor = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
+            
         }
     }
 }
@@ -93,11 +109,12 @@ class FavoritesTableViewCell: UITableViewCell {
         let coloro = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
         
         self.backgroundColor = UIColor.whiteColor()
-        viewForRightContainer.backgroundColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+        viewForRightContainer.backgroundColor = coloro
         
         self.labelTitleForFavoritesCell.textColor = coloro
         self.labelNumberOfSpots.textColor = UIColor.whiteColor()
         self.labelSpots.textColor = UIColor.whiteColor()
+        
     }
     
     func methodSetUpCellSomethingHasGoneWrong() {

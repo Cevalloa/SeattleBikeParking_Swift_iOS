@@ -16,10 +16,12 @@
 		6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4701BF81E2B007C53C7 /* WebServiceProxy.swift */; };
 		6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4871BF95E71007C53C7 /* Constants.swift */; };
 		6C5010EB1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EA1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift */; };
+		6C5010ED1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EC1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift */; };
 		6C6C6C421C462EBB009884A0 /* MapViewBikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */; };
 		6C6C6C441C462EDB009884A0 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */; };
 		6C7166341C15318900658220 /* Seattle_Bike_ParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */; };
 		6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71663B1C153B0600658220 /* MapOfBikes.swift */; };
+		6CA8D75A1D0F433F00EB47B7 /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8D7591D0F433F00EB47B7 /* MapExtensions.swift */; };
 		6CAD20C61C4AE8790002FDDA /* ParkingBikeSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */; };
 		6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C71C4B18930002FDDA /* MapService.swift */; };
 		6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */; };
@@ -58,11 +60,13 @@
 		6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		6C0BA4871BF95E71007C53C7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6C5010EA1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		6C5010EC1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOfFavoriteBikes.swift; sourceTree = "<group>"; };
 		6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewBikesTests.swift; sourceTree = "<group>"; };
 		6C7166311C15318900658220 /* Seattle Bike ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seattle Bike ParkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7166331C15318900658220 /* Seattle_Bike_ParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seattle_Bike_ParkingUITests.swift; sourceTree = "<group>"; };
 		6C7166351C15318900658220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C71663B1C153B0600658220 /* MapOfBikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOfBikes.swift; sourceTree = "<group>"; };
+		6CA8D7591D0F433F00EB47B7 /* MapExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingBikeSpotModel.swift; sourceTree = "<group>"; };
 		6CAD20C71C4B18930002FDDA /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeSpotParser.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				6C71663B1C153B0600658220 /* MapOfBikes.swift */,
+				6C5010EC1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift */,
+				6CA8D7591D0F433F00EB47B7 /* MapExtensions.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CAD20C61C4AE8790002FDDA /* ParkingBikeSpotModel.swift in Sources */,
+				6C5010ED1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift in Sources */,
 				6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */,
 				6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */,
 				6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */,
@@ -390,6 +397,7 @@
 				6C5010EB1D0DF4DC0089F5C2 /* FavoritesTableViewController.swift in Sources */,
 				6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */,
 				6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */,
+				6CA8D75A1D0F433F00EB47B7 /* MapExtensions.swift in Sources */,
 				6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */,
 				6CE19CE61D0D3C18001D8C74 /* BikeSpotService.swift in Sources */,
 				6C0BA4581BF81D86007C53C7 /* AppDelegate.swift in Sources */,
