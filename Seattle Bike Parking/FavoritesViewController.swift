@@ -100,8 +100,13 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var labelSpots: UILabel!
     
     @IBOutlet weak var viewForRightContainer: UIView!
+    
+    
     func methodSetUpCell(parkingBikeSpotModel: ParkingBikeSpotModel) {
+        
         self.labelTitleForFavoritesCell.text = parkingBikeSpotModel.address
+        self.labelNumberOfSpots.text = parkingBikeSpotModel.spotsAvailable
+
         
         self.backgroundColor = UIColor.whiteColor()
         
@@ -110,6 +115,8 @@ class FavoritesTableViewCell: UITableViewCell {
     
     func methodSetUpCellSomethingHasGoneWrong() {
         self.labelTitleForFavoritesCell.text = ""
+        self.labelNumberOfSpots.text = ""
+        self.labelNumberOfSpots.text = ""
         
         methodApplyTheme()
     }

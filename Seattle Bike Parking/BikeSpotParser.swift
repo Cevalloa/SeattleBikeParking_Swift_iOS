@@ -41,6 +41,7 @@ class BikeSpotParser {
         return arrayOfDictionariesFiltered.map({ (individualDictionaryOfParkingSpot) -> ParkingBikeSpotModel in
             
             var parkingSpotTitle = "Unknown spots available"
+            var parkingSpotsAvailable = "N/A"
             let parkingSpotSubtitle = ""
             var parkingSpotAddress = ""
             
@@ -48,6 +49,7 @@ class BikeSpotParser {
             if let parkingSpotTitleUnwrapped = individualDictionaryOfParkingSpot["rack_capac"] {
                 
                 parkingSpotTitle = "\(parkingSpotTitleUnwrapped) maximum capacity"
+                parkingSpotsAvailable = "\(parkingSpotTitleUnwrapped)"
             }
             
             if let parkingSpotAddressUnwrapped = individualDictionaryOfParkingSpot["unitdesc"] as? String {
@@ -71,9 +73,8 @@ class BikeSpotParser {
                 parkingSpotAddress = parkingSpotAddressFinal
             }
             
-            
             // Forcefully unwrapping, since already filtered out non lat/long Doubles
-            return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, address: parkingSpotAddress, coordinate: CLLocationCoordinate2DMake(
+            return ParkingBikeSpotModel(title: parkingSpotTitle, subTitle: parkingSpotSubtitle, spotsAvailable: parkingSpotsAvailable, address: parkingSpotAddress, coordinate: CLLocationCoordinate2DMake(
                 Double(individualDictionaryOfParkingSpot["latitude"] as! String)!,
                 Double(individualDictionaryOfParkingSpot["longitude"] as! String)!))
         })
