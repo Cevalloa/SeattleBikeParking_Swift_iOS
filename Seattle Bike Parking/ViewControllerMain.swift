@@ -32,15 +32,12 @@ class ViewControllerMain: UIViewController {
             let returnedJSONTwo = BikeSpotParser.methodCreateArrayOfBikeSpotModels(returnedJSON)
             
             // convert returned json into modelparkingspotbike
-  //          if let arrayOfModels = returnedJSONTwo as? [ParkingBikeSpotModel] {
                 for annotationTest in returnedJSONTwo {
                     
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.mapView.addAnnotation(annotationTest)
                     })
                 }
-    //        }
-
             
             print(returnedJSON)
         }
@@ -48,7 +45,6 @@ class ViewControllerMain: UIViewController {
         // Service layer calls HTTP request
         let bikeSpotService = BikeSpotService()
         bikeSpotService.methodGetRequestForBikeSpots(proxy)
-     //   service.GET(NSURL(string: "https://data.seattle.gov/resource/fxh3-tqdm.json")!)
     }
 }
 

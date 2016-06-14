@@ -21,6 +21,14 @@ extension MKMapView {
         self.centerMapOnLocation(centerOfSeattle)
     }
     
+    // Resets to view entire favorites map
+    func resetFavoritesMapToViewEntireSeattle() {
+        
+        let centerOfSeattle = CLLocation(latitude: MapKitConstants.SeattleCenterFavorites_latitude.rawValue, longitude: MapKitConstants.SeattleCenter_longitude.rawValue)
+        
+        self.centerMapOnLocation(centerOfSeattle)
+    }
+    
     // Centers the map on a specific location
     func centerMapOnLocation(location: CLLocation) {
         

@@ -1,5 +1,5 @@
 //
-//  FavoritesTableViewController.swift
+//  FavoritesViewController.swift
 //  Seattle Bike Parking
 //
 //  Created by Alex Cevallos on 6/12/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewFavorites: UITableView!
     @IBOutlet weak var labelNoFavoritesAvailable: UILabel!
@@ -102,7 +102,6 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var viewForRightContainer: UIView!
     func methodSetUpCell(parkingBikeSpotModel: ParkingBikeSpotModel) {
         self.labelTitleForFavoritesCell.text = parkingBikeSpotModel.address
-        
         
         self.backgroundColor = UIColor.whiteColor()
         

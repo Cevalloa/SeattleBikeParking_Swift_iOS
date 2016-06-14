@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="1245" y="726"/>
         </scene>
-        <!--Favorites Table View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="mts-vb-Uyp">
             <objects>
-                <viewController id="3cF-Yc-Rho" customClass="FavoritesTableViewController" customModule="Seattle_Bike_Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3cF-Yc-Rho" customClass="FavoritesViewController" customModule="Seattle_Bike_Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CrT-RE-Xlo"/>
                         <viewControllerLayoutGuide type="bottom" id="tx7-L0-Ie6"/>
@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="2846" y="725.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites Map View Controller-->
         <scene sceneID="YrO-Kn-cnU">
             <objects>
-                <viewController id="e1i-5k-kPz" sceneMemberID="viewController">
+                <viewController id="e1i-5k-kPz" customClass="FavoritesMapViewController" customModule="Seattle_Bike_Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BPO-bm-qAk"/>
                         <viewControllerLayoutGuide type="bottom" id="l4e-HO-TZO"/>
@@ -287,6 +287,9 @@
                             <constraint firstItem="WNX-H1-V0g" firstAttribute="leading" secondItem="cnD-B5-ZhL" secondAttribute="leading" id="ukc-wt-UmT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapOfFavoriteBikes" destination="WNX-H1-V0g" id="VOJ-6m-aZa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yh0-Qs-Gy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

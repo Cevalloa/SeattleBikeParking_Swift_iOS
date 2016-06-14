@@ -17,8 +17,13 @@ enum APIKeys: String {
 // MARK: MapKit Constants
 enum MapKitConstants: Double {
     
+    // Used for main map with bike spots
     case SeattleCenter_latitude = 47.6274899
     case SeattleCenter_longitude = -122.3322241
+    
+    // Used for small map with favorites
+    case SeattleCenterFavorites_latitude = 47.6090899
+    
     case regionRadius = 10000
 }
 
