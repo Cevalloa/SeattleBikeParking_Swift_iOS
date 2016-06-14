@@ -59,17 +59,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func methodSetupAppAppearanceNavigationBar() {
         
         UINavigationBar.appearance().translucent = false
-        UINavigationBar.appearance().barTintColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = ColorConstants().navigationBarColor
     }
     
     func methodSetupAppAppearanceTabBar() {
         
         UITabBar.appearance().translucent = false
-        UITabBar.appearance().barTintColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+        UITabBar.appearance().barTintColor = ColorConstants().navigationBarColor
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor().colorWithAlphaComponent(0.5)], forState: UIControlState.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: ColorConstants().tabBarUnselectedColor], forState: UIControlState.Normal)
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: ColorConstants().tabBarSelectedColor], forState: UIControlState.Selected)
     }
 }
 

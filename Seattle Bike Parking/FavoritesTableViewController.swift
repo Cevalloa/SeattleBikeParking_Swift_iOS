@@ -19,13 +19,12 @@ class FavoritesTableViewController: UIViewController, UITableViewDataSource, UIT
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Converts NSUserDefaults favorites array from NSData into an array of BikeSpotModel objects
+        // Delegate and data source for favorite table view
         self.tableViewFavorites.delegate = self
         self.tableViewFavorites.dataSource = self
-    
-        methodConvertNSUserDefaultArrayIntoUsableBikeSpotModelArray()
         
-
+        // Converts NSUserDefaults favorites array from NSData into an array of BikeSpotModel objects
+        methodConvertNSUserDefaultArrayIntoUsableBikeSpotModelArray()
     }
     
     //MARK: - Tableview Data Source Methods
@@ -38,8 +37,7 @@ class FavoritesTableViewController: UIViewController, UITableViewDataSource, UIT
             tableViewCell.methodSetUpCell(arrayOfFavoriteBikeSpotsUnwrapped[indexPath.row])
         } else {
             
-            tableViewCell.labelTitleForFavoritesCell.text = "Hello"
-
+            tableViewCell.methodSetUpCellSomethingHasGoneWrong()
         }
         
         return tableViewCell
@@ -89,8 +87,7 @@ class FavoritesTableViewController: UIViewController, UITableViewDataSource, UIT
             
             self.tableViewFavorites.hidden = true
             labelNoFavoritesAvailable.hidden = false
-            self.labelNoFavoritesAvailable.textColor = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
-            
+            self.labelNoFavoritesAvailable.textColor = ColorConstants().favoritesMainTextColor
         }
     }
 }
@@ -106,19 +103,29 @@ class FavoritesTableViewCell: UITableViewCell {
     func methodSetUpCell(parkingBikeSpotModel: ParkingBikeSpotModel) {
         self.labelTitleForFavoritesCell.text = parkingBikeSpotModel.address
         
-        let coloro = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
         
         self.backgroundColor = UIColor.whiteColor()
-        viewForRightContainer.backgroundColor = coloro
         
-        self.labelTitleForFavoritesCell.textColor = coloro
-        self.labelNumberOfSpots.textColor = UIColor.whiteColor()
-        self.labelSpots.textColor = UIColor.whiteColor()
-        
+        methodApplyTheme()
     }
     
     func methodSetUpCellSomethingHasGoneWrong() {
         self.labelTitleForFavoritesCell.text = ""
+        
+        methodApplyTheme()
+    }
+    
+    func methodApplyTheme() {
+        
+        // Container to the right of table view cell
+        viewForRightContainer.backgroundColor = ColorConstants().favoritesMainTextColor
+        
+        // Main title
+        self.labelTitleForFavoritesCell.textColor = ColorConstants().favoritesMainTextColor
+        
+        // Labels inside container to the right
+        self.labelNumberOfSpots.textColor = ColorConstants().tabBarSelectedColor
+        self.labelSpots.textColor = ColorConstants().tabBarSelectedColor
     }
     
 }
