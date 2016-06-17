@@ -74,7 +74,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots {
                 
-                if arrayOfFavoriteBikeSpotsUnwrapped.count-1 <= indexPath.row {
+                if arrayOfFavoriteBikeSpotsUnwrapped.count-1 >= indexPath.row {
                     
                     arrayOfFavoriteBikeSpots?.removeAtIndex(indexPath.row)
                     
