@@ -16,6 +16,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     // Contains list of favorites
     var arrayOfFavoriteBikeSpots: [ParkingBikeSpotModel]?
     
+    // MARK: View lifecycle methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableViewFavorites.allowsSelectionDuringEditing = false
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -54,6 +61,46 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
+    }
+    
+    //MARK: Tableview Delegate Methods
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            print(arrayOfFavoriteBikeSpots![indexPath.row])
+            
+            if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots {
+                
+                if arrayOfFavoriteBikeSpotsUnwrapped.count-1 <= indexPath.row {
+                    
+                    arrayOfFavoriteBikeSpots?.removeAtIndex(indexPath.row)
+                    
+                    var arrayUpdatedFavoriteBikeSpots: [NSData] = []
+                    
+                    for favoriteBikeSpot in arrayOfFavoriteBikeSpots! {
+                        
+                        arrayUpdatedFavoriteBikeSpots = [NSKeyedArchiver.archivedDataWithRootObject(favoriteBikeSpot)] + arrayUpdatedFavoriteBikeSpots
+                    }
+                    
+//                    let _ = arrayOfFavoriteBikeSpots.map({ (favoriteBikeSpot: ParkingBikeSpotModel)in
+//                        
+//
+//                    })
+                    
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    userDefaults.setObject(arrayUpdatedFavoriteBikeSpots, forKey: "arrayOfFavoriteBikeSpots")
+                    
+                    userDefaults.synchronize()
+                    
+                    tableViewFavorites.reloadData()
+                }
+            }
+            
+
+        }
     }
     
     //MARK: - NSUserDefaults Conversion Methods
