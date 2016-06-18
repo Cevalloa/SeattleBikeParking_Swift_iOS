@@ -82,13 +82,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                     
                     for favoriteBikeSpot in arrayOfFavoriteBikeSpots! {
                         
-                        arrayUpdatedFavoriteBikeSpots = [NSKeyedArchiver.archivedDataWithRootObject(favoriteBikeSpot)] + arrayUpdatedFavoriteBikeSpots
+                        arrayUpdatedFavoriteBikeSpots = arrayUpdatedFavoriteBikeSpots + [NSKeyedArchiver.archivedDataWithRootObject(favoriteBikeSpot)]
                     }
-                    
-//                    let _ = arrayOfFavoriteBikeSpots.map({ (favoriteBikeSpot: ParkingBikeSpotModel)in
-//                        
-//
-//                    })
                     
                     let userDefaults = NSUserDefaults.standardUserDefaults()
                     userDefaults.setObject(arrayUpdatedFavoriteBikeSpots, forKey: "arrayOfFavoriteBikeSpots")
