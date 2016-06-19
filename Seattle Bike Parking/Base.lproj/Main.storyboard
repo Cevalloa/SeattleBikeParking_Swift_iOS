@@ -20,17 +20,43 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0h5-rY-tJA" customClass="MapOfBikes" customModule="Seattle_Bike_Parking" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-ua-hug">
+                                <rect key="frame" x="535" y="446" width="55" height="55"/>
+                                <state key="normal" backgroundImage="locationOff"/>
+                                <connections>
+                                    <action selector="actionFindUserButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HRY-4Q-cKK"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUY-Jc-3Be">
+                                <rect key="frame" x="490" y="511" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Fae-Sm-jKb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Reset Map">
+                                    <color key="titleColor" red="0.99187184340000001" green="0.01083439114" blue="0.35796235430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionResetMapButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hkn-Mf-Hd3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YdI-ua-hug" secondAttribute="trailing" constant="10" id="Bb5-b4-a31"/>
                             <constraint firstItem="0h5-rY-tJA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Cco-yN-Akk"/>
                             <constraint firstAttribute="trailing" secondItem="0h5-rY-tJA" secondAttribute="trailing" id="HmN-c2-1Kk"/>
+                            <constraint firstItem="oUY-Jc-3Be" firstAttribute="top" secondItem="YdI-ua-hug" secondAttribute="bottom" constant="10" id="NbC-Q2-sqa"/>
+                            <constraint firstAttribute="trailing" secondItem="oUY-Jc-3Be" secondAttribute="trailing" constant="10" id="fI9-8h-3GQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0h5-rY-tJA" secondAttribute="bottom" id="kiI-sJ-mBz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oUY-Jc-3Be" secondAttribute="bottom" constant="10" id="pCL-7s-u6r"/>
                             <constraint firstItem="0h5-rY-tJA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rFN-Bw-QVS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qNK-8O-cGT"/>
                     <connections>
+                        <outlet property="buttonToResetMap" destination="oUY-Jc-3Be" id="HjE-oM-Ul5"/>
                         <outlet property="mapView" destination="0h5-rY-tJA" id="nqi-Lx-Ksn"/>
                     </connections>
                 </viewController>
@@ -296,4 +322,7 @@
             <point key="canvasLocation" x="2733" y="1134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locationOff" width="55" height="55"/>
+    </resources>
 </document>

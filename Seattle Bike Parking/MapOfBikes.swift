@@ -9,15 +9,34 @@
 import Foundation
 import MapKit
 
-class MapOfBikes: MKMapView {
+class MapOfBikes: MKMapView, UIGestureRecognizerDelegate {
+    
+    var viewControllerMainProtocol: ViewControllerMainProtocol?
     
     // MARK: Initializer Methods
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         self.delegate = self
+        
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(methodUserMovedMap))
+        panRecognizer.delegate = self
+        self.addGestureRecognizer(panRecognizer)
+        
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
+    func methodUserMovedMap() {
+        print("called map change")
+        if let viewControllerMainProtocolUnwrapped = viewControllerMainProtocol {
+            
+            viewControllerMainProtocolUnwrapped.protocolMapHasMoved()
+        }
+    }
+    
 }
 
 // MapView Delegate Methods
@@ -62,8 +81,6 @@ extension MapOfBikes: MKMapViewDelegate {
         if let arrayOfFavoritesCurrently = userDefaults.objectForKey("arrayOfFavoriteBikeSpots") as? [NSData] {
             
             updatedArray = [NSKeyedArchiver.archivedDataWithRootObject(annotationClicked)] + arrayOfFavoritesCurrently
-            
-           // updatedArray = userDefaults.setObject(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
         }
         
         userDefaults.setObject(updatedArray, forKey: "arrayOfFavoriteBikeSpots")
@@ -72,6 +89,16 @@ extension MapOfBikes: MKMapViewDelegate {
         
         print(annotationClicked.title)
 
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+//        
+//        let userLocation = mapView.userLocation
+//        
+//        let region = MKCoordinateRegionMakeWithDistance(
+//            userLocation.location!.coordinate, 200, 200)
+//        
+//        mapView.setRegion(region, animated: true)
     }
 }
 
