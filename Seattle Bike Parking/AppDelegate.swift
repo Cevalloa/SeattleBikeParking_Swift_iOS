@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().translucent = false
         UINavigationBar.appearance().barTintColor = ColorConstants().navigationBarColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     
     func methodSetupAppAppearanceTabBar() {

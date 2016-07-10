@@ -15,7 +15,7 @@
 		6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA46C1BF81E01007C53C7 /* ProxyProtocol.swift */; };
 		6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4701BF81E2B007C53C7 /* WebServiceProxy.swift */; };
 		6C0BA4881BF95E71007C53C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BA4871BF95E71007C53C7 /* Constants.swift */; };
-		6C5010EB1D0DF4DC0089F5C2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EA1D0DF4DC0089F5C2 /* FavoritesViewController.swift */; };
+		6C5010EB1D0DF4DC0089F5C2 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EA1D0DF4DC0089F5C2 /* FavoritesListViewController.swift */; };
 		6C5010ED1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5010EC1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift */; };
 		6C5BA72C1D0F9DCB00615D3C /* FavoritesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BA72B1D0F9DCB00615D3C /* FavoritesMapViewController.swift */; };
 		6C6C6C421C462EBB009884A0 /* MapViewBikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */; };
@@ -25,6 +25,7 @@
 		6CA8D75A1D0F433F00EB47B7 /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8D7591D0F433F00EB47B7 /* MapExtensions.swift */; };
 		6CAD20C61C4AE8790002FDDA /* ParkingBikeSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */; };
 		6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD20C71C4B18930002FDDA /* MapService.swift */; };
+		6CC1E7AE1D1765CC002FDE58 /* FavoritesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1E7AD1D1765CC002FDE58 /* FavoritesContainerViewController.swift */; };
 		6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */; };
 		6CE19CE61D0D3C18001D8C74 /* BikeSpotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE19CE51D0D3C18001D8C74 /* BikeSpotService.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +61,7 @@
 		6C0BA47A1BF8208B007C53C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C0BA4841BF90137007C53C7 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		6C0BA4871BF95E71007C53C7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6C5010EA1D0DF4DC0089F5C2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		6C5010EA1D0DF4DC0089F5C2 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 		6C5010EC1D0F40D70089F5C2 /* MapOfFavoriteBikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOfFavoriteBikes.swift; sourceTree = "<group>"; };
 		6C5BA72B1D0F9DCB00615D3C /* FavoritesMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesMapViewController.swift; sourceTree = "<group>"; };
 		6C6C6C3F1C462DE1009884A0 /* MapViewBikesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewBikesTests.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		6CA8D7591D0F433F00EB47B7 /* MapExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		6CAD20C51C4AE8790002FDDA /* ParkingBikeSpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingBikeSpotModel.swift; sourceTree = "<group>"; };
 		6CAD20C71C4B18930002FDDA /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		6CC1E7AD1D1765CC002FDE58 /* FavoritesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesContainerViewController.swift; sourceTree = "<group>"; };
 		6CC2A4471D08A27800ECB3EE /* BikeSpotParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeSpotParser.swift; sourceTree = "<group>"; };
 		6CE19CE51D0D3C18001D8C74 /* BikeSpotService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeSpotService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +201,8 @@
 		6C5010E91D0DF2AE0089F5C2 /* Favorites Tab */ = {
 			isa = PBXGroup;
 			children = (
-				6C5010EA1D0DF4DC0089F5C2 /* FavoritesViewController.swift */,
+				6CC1E7AD1D1765CC002FDE58 /* FavoritesContainerViewController.swift */,
+				6C5010EA1D0DF4DC0089F5C2 /* FavoritesListViewController.swift */,
 				6C5BA72B1D0F9DCB00615D3C /* FavoritesMapViewController.swift */,
 			);
 			name = "Favorites Tab";
@@ -398,10 +401,11 @@
 				6CAD20C81C4B18930002FDDA /* MapService.swift in Sources */,
 				6C0BA46D1BF81E01007C53C7 /* ProxyProtocol.swift in Sources */,
 				6C0BA45A1BF81D86007C53C7 /* ViewControllerMain.swift in Sources */,
-				6C5010EB1D0DF4DC0089F5C2 /* FavoritesViewController.swift in Sources */,
+				6C5010EB1D0DF4DC0089F5C2 /* FavoritesListViewController.swift in Sources */,
 				6C0BA4711BF81E2B007C53C7 /* WebServiceProxy.swift in Sources */,
 				6C71663C1C153B0600658220 /* MapOfBikes.swift in Sources */,
 				6CA8D75A1D0F433F00EB47B7 /* MapExtensions.swift in Sources */,
+				6CC1E7AE1D1765CC002FDE58 /* FavoritesContainerViewController.swift in Sources */,
 				6CC2A4481D08A27800ECB3EE /* BikeSpotParser.swift in Sources */,
 				6CE19CE61D0D3C18001D8C74 /* BikeSpotService.swift in Sources */,
 				6C0BA4581BF81D86007C53C7 /* AppDelegate.swift in Sources */,

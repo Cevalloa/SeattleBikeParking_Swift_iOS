@@ -8,10 +8,14 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoritesListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: IBOutlet Properties
     @IBOutlet weak var tableViewFavorites: UITableView!
     @IBOutlet weak var labelNoFavoritesAvailable: UILabel!
+    
+    // MARK: Delegates
+    var favoritesListToMapProtocol: FavoritesListToMapProtocol?
     
     // Contains list of favorites
     var arrayOfFavoriteBikeSpots: [ParkingBikeSpotModel]?
@@ -21,6 +25,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         self.tableViewFavorites.allowsSelectionDuringEditing = false
+        
+        self.tableViewFavorites.backgroundColor = UIColor(red: 42/255, green: 45/255, blue: 50/255, alpha: 1.0)
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -74,6 +81,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots {
                 
+                // Makes sure the selected row isn't greater than amount of bike spots
                 if arrayOfFavoriteBikeSpotsUnwrapped.count-1 >= indexPath.row {
                     
                     arrayOfFavoriteBikeSpots?.removeAtIndex(indexPath.row)
@@ -93,8 +101,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                     tableViewFavorites.reloadData()
                 }
             }
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let arrayOfFavoriteBikeSpotsUnwrapped = arrayOfFavoriteBikeSpots,
+            let favoritesListToMapProtocolUnwrapped = favoritesListToMapProtocol {
             
-
+               favoritesListToMapProtocolUnwrapped.favoriteCellPressedTimeToUpdateMapLocation(arrayOfFavoriteBikeSpotsUnwrapped[indexPath.row]) 
         }
     }
     
@@ -103,6 +117,12 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         // Finds array of NSData (converted from bike spot model objects)
         if let arrayOfNSDataSpotModelsUnwrapped = NSUserDefaults.standardUserDefaults().arrayForKey("arrayOfFavoriteBikeSpots") as? [NSData] {
+            
+            if arrayOfNSDataSpotModelsUnwrapped.count <= 0 {
+                
+                displayViewControllerWithoutFavoritesData()
+                return
+            }
             
             // Converted NSUserDefault array elements will be placed here
             var arrayOfFavoriteBikeSpotsConvertedFromUserDefaults: [ParkingBikeSpotModel] = []
@@ -122,15 +142,26 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             // Assign our local array of Spot models into our global property in use by our table view
             arrayOfFavoriteBikeSpots = arrayOfFavoriteBikeSpotsConvertedFromUserDefaults
-            labelNoFavoritesAvailable.hidden = true
-            tableViewFavorites.hidden = false
-            tableViewFavorites.reloadData()
+            displayViewControllerWithFavoritesData()
         } else {
             
-            self.tableViewFavorites.hidden = true
-            labelNoFavoritesAvailable.hidden = false
-            self.labelNoFavoritesAvailable.textColor = ColorConstants().favoritesMainTextColor
+            displayViewControllerWithoutFavoritesData()
         }
+    }
+    
+    //MARK: Helper Methods
+    func displayViewControllerWithFavoritesData() {
+        
+        labelNoFavoritesAvailable.hidden = true
+        tableViewFavorites.hidden = false
+        tableViewFavorites.reloadData()
+    }
+    
+    func displayViewControllerWithoutFavoritesData() {
+        
+        self.tableViewFavorites.hidden = true
+        labelNoFavoritesAvailable.hidden = false
+        self.labelNoFavoritesAvailable.textColor = ColorConstants().favoritesMainTextColor
     }
 }
 
@@ -150,7 +181,7 @@ class FavoritesTableViewCell: UITableViewCell {
         self.labelNumberOfSpots.text = parkingBikeSpotModel.spotsAvailable
 
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor(red: 42/255, green: 45/255, blue: 50/255, alpha: 1.0)
         
         methodApplyTheme()
     }
@@ -169,11 +200,16 @@ class FavoritesTableViewCell: UITableViewCell {
         viewForRightContainer.backgroundColor = ColorConstants().favoritesMainTextColor
         
         // Main title
-        self.labelTitleForFavoritesCell.textColor = ColorConstants().favoritesMainTextColor
+        self.labelTitleForFavoritesCell.textColor = UIColor.whiteColor()
         
         // Labels inside container to the right
         self.labelNumberOfSpots.textColor = ColorConstants().tabBarSelectedColor
         self.labelSpots.textColor = ColorConstants().tabBarSelectedColor
+        
+        // Prevents gray background on cell click
+        self.selectionStyle = UITableViewCellSelectionStyle.None
     }
     
 }
+
+// 

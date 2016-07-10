@@ -31,7 +31,7 @@ enum MapKitConstants: Double {
 struct ColorConstants {
     
     // Navigation bar color
-    let navigationBarColor = UIColor(red: 10/255, green: 158/255, blue: 204/255, alpha: 1)
+    let navigationBarColor = UIColor(red: 38/255, green: 41/255, blue: 46/255, alpha: 1)
     
     // Unselected tab bar color
     let tabBarUnselectedColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
@@ -40,7 +40,10 @@ struct ColorConstants {
     let tabBarSelectedColor = UIColor.whiteColor()
     
     // Favorites main text color
-    let favoritesMainTextColor = UIColor(red: 6/255, green: 100/255, blue: 129/255, alpha: 1.0)
+    let favoritesMainTextColor = UIColor(red:66/255, green:204/255, blue:85/255, alpha:1.0)
+    
+    // Background color for favorites cell
+    let backgroundCellColor = UIColor(red: 42/255, green: 45/255, blue: 50/255, alpha: 1.0)
 }
 
 // MARK: WebService Constants

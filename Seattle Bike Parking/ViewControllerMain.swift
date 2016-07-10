@@ -44,6 +44,11 @@ class ViewControllerMain: UIViewController, ViewControllerMainProtocol, CLLocati
         self.buttonToResetMap.layer.cornerRadius = 5 // Circular feel
         self.buttonToResetMap.layer.borderWidth = 1
         self.buttonToResetMap.layer.borderColor = UIColor.blackColor().CGColor
+        
+        // First tab title
+        self.title = "Main Map"
+        // Second set navigation bar title
+        self.navigationItem.title = "Seattle Bike Parking"
     }
     
     //MARK: Network Methods
@@ -77,7 +82,7 @@ class ViewControllerMain: UIViewController, ViewControllerMainProtocol, CLLocati
     func protocolMapHasMoved() {
         
         // If the user moves the map, lets unhide the button
-        self.buttonToResetMap.hidden = false
+       // self.buttonToResetMap.hidden = false
     }
     
     // IBAction Methods
@@ -143,9 +148,7 @@ class ViewControllerMain: UIViewController, ViewControllerMainProtocol, CLLocati
                     locationUnwrapped.coordinate, 200, 200)
                 
                 mapView.setRegion(region, animated: true)
-            }
-            
-            
+            } // Handle logic if could not determine user's location
         }
     }
     

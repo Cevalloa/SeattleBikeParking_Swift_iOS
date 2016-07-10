@@ -37,6 +37,14 @@ extension MKMapView {
         self.setRegion(coordinateRegion, animated: true)
     }
     
+    func centerMapOnFavoritesLocation(location: CLLocationCoordinate2D) {
+        
+        let region = MKCoordinateRegionMakeWithDistance(
+            location, 200, 200)
+        
+        self.setRegion(region, animated: true)
+    }
+    
     // MARK: Direction Methods
     func drawDirectionRouteOnMap() {
         

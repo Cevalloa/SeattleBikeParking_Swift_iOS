@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FavoritesMapViewController: UIViewController {
+class FavoritesMapViewController: UIViewController, FavoritesListToMapProtocol {
 
     @IBOutlet weak var mapOfFavoriteBikes: MapOfFavoriteBikes!
     
@@ -19,5 +19,19 @@ class FavoritesMapViewController: UIViewController {
         // Do any additional setup after loading the view.
         mapOfFavoriteBikes.resetFavoritesMapToViewEntireSeattle()
     }
+    
+    func favoriteCellPressedTimeToUpdateMapLocation(parkingBikeSpotModel: ParkingBikeSpotModel) {
+        
+        
+        if mapOfFavoriteBikes.annotations.count > 0 {
+            mapOfFavoriteBikes.removeAnnotations(mapOfFavoriteBikes.annotations)
+        }
+        mapOfFavoriteBikes.centerMapOnFavoritesLocation(parkingBikeSpotModel.coordinate)
+        mapOfFavoriteBikes.addAnnotation(parkingBikeSpotModel)
+    }
 
+}
+
+protocol FavoritesListToMapProtocol {
+    func favoriteCellPressedTimeToUpdateMapLocation(parkingBikeSpotModel: ParkingBikeSpotModel)
 }
